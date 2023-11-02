@@ -12,7 +12,9 @@ Contact::Contact(int index, bool secret, std::string firtName, std::string lastN
 	this->_secret = secret;
 }
 
-Contact::Contact(){}
+Contact::Contact(){
+	this->_index = -1;
+}
 
 Contact::~Contact(){}
 
@@ -32,4 +34,7 @@ std::string Contact::get_Phone()
 {
 	return(this->_phone);
 }
-
+int Contact::get_Index()
+{
+	return(this->_index);
+}

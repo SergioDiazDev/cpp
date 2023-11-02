@@ -30,7 +30,6 @@ int main()
 	bool  menu = 1;
 	system("clear");
 	PhoneBook miPhoneBook;
-	Contact miContacto = Contact(1, true, "S", "D", "SD", "123");
 	while (menu)
 	{
 		ft_menu();
@@ -43,20 +42,17 @@ int main()
 		{
 			case '1':
 			{
-
-				std::cout << "\n\t\t\t***ADD***\n";
-				
+				miPhoneBook.add_Contact();
 				break ;
 			}
 			case '2':
 			{
-
-				std::cout << "\n\t\t\t***SEARCH***\n";
+				miPhoneBook.get_Contacts();
+				miPhoneBook.get_Contact();
 				break ;
 			}
 			case '3':
 			{
-
 				system("clear");
 				std::cout << "\n\t\t\t***EXIT***\n";
 				menu = 0;

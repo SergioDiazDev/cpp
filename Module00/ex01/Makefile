@@ -1,5 +1,5 @@
 NAME			=	main
-CFLAGS			=	-Wall -Werror -Wextra
+CFLAGS			=	
 RM				=	rm -fr
 
 # COLORS

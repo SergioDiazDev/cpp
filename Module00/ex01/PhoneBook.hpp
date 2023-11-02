@@ -14,23 +14,24 @@
 #define PHONEBOOK_HPP
 
 # include <iostream>
+# include <vector>
+# include <string>
+# include <cstdlib>
 # include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
-		Contact			_contacts[7];
-		static int _lastId;
+		std::vector<Contact>	_contacts;
+		static int				_lastId;
 	public:
 		PhoneBook();
 		~PhoneBook();
-		//GETs
+
 		void	get_Contacts();
 		void	get_Contact();
-		//SETs
-		Contact	set_Contact();
-
 		void	add_Contact();
+		void	ft_truc_str(std::string);
 		
 };
 

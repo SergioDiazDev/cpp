@@ -36,6 +36,7 @@ class Contact
 		std::string get_Nick();
 		std::string get_Phone();
 		std::string get_Secret();
+		int get_Index();
 };
 
 #endif
