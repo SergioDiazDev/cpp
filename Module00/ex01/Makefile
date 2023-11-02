@@ -7,7 +7,7 @@ GREEN = `tput setaf 2`
 RED = `tput setaf 1`
 RESET = `tput sgr0`
 
-SRCS			=	main.cpp
+SRCS			=	main.cpp Contact.cpp PhoneBook.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -21,7 +21,7 @@ $(TRUE).SILENT:
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@c++ -o $@ -std=c++98 $(OBJS) Contact.cpp PhoneBook.cpp
+	@c++ -o $@ -std=c++98 $(OBJS)
 	@echo "$(GREEN)CREATE $(NAME) $(RESET)"
 
 
