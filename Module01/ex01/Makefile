@@ -7,7 +7,7 @@ GREEN = `tput setaf 2`
 RED = `tput setaf 1`
 RESET = `tput sgr0`
 
-SRCS			=	main.cpp Zombie.cpp randomChump.cpp newZombie.cpp
+SRCS			=	main.cpp Zombie.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
