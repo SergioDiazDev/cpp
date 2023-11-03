@@ -7,7 +7,7 @@ GREEN = `tput setaf 2`
 RED = `tput setaf 1`
 RESET = `tput sgr0`
 
-SRCS			=	main.cpp Zombie.cpp
+SRCS			=	main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
