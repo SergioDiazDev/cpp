@@ -7,7 +7,7 @@
 #define MAGENTA "\033[35m"
 #define BLUE "\033[34m"
 
-Fixed::Fixed()
+Fixed::Fixed() : _integer(0)
 {
 	std::cout << GREEN << "Create Fixed, Default" << RESET << std::endl;
 }
