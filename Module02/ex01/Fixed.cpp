@@ -13,12 +13,12 @@ Fixed::Fixed()
 }
 Fixed::Fixed(int i)
 {
-	this->_integer = i;
+	this->_integer = i * (1 << this->_bit_frac);
 	std::cout << GREEN << "Create Fixed, integer" << RESET << std::endl;
 }
 Fixed::Fixed(float f)
 {
-	this->_integer = f;
+	this->_integer = roundf(f * (1 << this->_bit_frac));
 	std::cout << GREEN << "Create Fixed, float" << RESET << std::endl;
 }
 Fixed::~Fixed()
@@ -52,8 +52,18 @@ void Fixed::setRawBits ( int const raw )
 	this->_integer = raw;
 }
 
+float Fixed::toFloat( void ) const
+{
+	return ((float)this->_integer / (1 << this->_bit_frac));
+}
+
+int Fixed::toInt( void ) const
+{
+	return (this->_integer / (1 << this->_bit_frac));
+}
+
 std::ostream& operator<<(std::ostream& os, const Fixed& number)
 {
-	os << number.getRawBits();
+	os << number.toFloat();
 	return os;
 }
