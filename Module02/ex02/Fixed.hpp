@@ -40,6 +40,12 @@ class Fixed
 		Fixed	&operator++(void);
 		Fixed	&operator--(void);
 
+		static Fixed &min(Fixed &, Fixed &);
+		static const Fixed &min(const Fixed &, const Fixed &);
+
+		static Fixed &max(Fixed &, Fixed &);
+		static const Fixed &max(const Fixed &, const Fixed &);
+
 
 };
 

@@ -134,6 +134,34 @@ Fixed	&Fixed::operator--(void)
 	return (*this);
 }
 
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a.toFloat() < b.toFloat())
+		return a;
+	return b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a.toFloat() < b.toFloat())
+		return a;
+	return b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return a;
+	return b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a.toFloat() > b.toFloat())
+		return a;
+	return b;
+}
+
 int Fixed::getRawBits( void ) const
 {
 	std::cout << BLUE << "Call getRawBits()"  << RESET << std::endl;
