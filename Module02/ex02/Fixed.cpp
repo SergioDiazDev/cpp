@@ -7,7 +7,7 @@
 #define MAGENTA "\033[35m"
 #define BLUE "\033[34m"
 
-Fixed::Fixed()
+Fixed::Fixed() : _integer(0)
 {
 	std::cout << GREEN << "Create Fixed, Default" << RESET << std::endl;
 }
@@ -72,6 +72,66 @@ Fixed	Fixed::operator/(const Fixed &n)
 	Fixed result = *this;
     result._integer = result._integer / n.toFloat();
     return result;
+}
+
+bool	Fixed::operator==(const Fixed &n)
+{
+	return (this->_integer == n._integer);
+}
+
+bool	Fixed::operator!=(const Fixed &n)
+{
+	return (this->_integer != n._integer);
+}
+
+bool	Fixed::operator<(const Fixed &n)
+{
+	return (this->_integer < n._integer);
+}
+
+bool	Fixed::operator<=(const Fixed &n)
+{
+	return (this->_integer <= n._integer);
+}
+
+bool	Fixed::operator>(const Fixed &n)
+{
+	return (this->_integer > n._integer);
+}
+
+bool	Fixed::operator>=(const Fixed &n)
+{
+	return (this->_integer >= n._integer);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed temp(*this);
+	std::cout << MAGENTA << "Operator (++)" << RESET << std::endl;
+	this->_integer++;
+	return (temp);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed temp(*this);
+	std::cout << MAGENTA << "Operator (--)" << RESET << std::endl;
+	this->_integer--;
+	return (temp);
+}
+
+Fixed	&Fixed::operator++(void)
+{
+	std::cout << MAGENTA << "Operator (++)" << RESET << std::endl;
+	this->_integer++;
+	return (*this);
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	std::cout << MAGENTA << "Operator (--)" << RESET << std::endl;
+	this->_integer--;
+	return (*this);
 }
 
 int Fixed::getRawBits( void ) const
