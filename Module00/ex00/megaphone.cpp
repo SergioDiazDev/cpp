@@ -22,6 +22,7 @@ int main(int argc, char **argv)
 	for(int j = 1; argv[j]; j++)
 		for(int i = 0; argv[j][i]; i++)
 			std::cout << (char)std::toupper(argv[j][i]);
+	std::cout << std::endl;
 
 	return (0);
 }
