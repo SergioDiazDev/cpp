@@ -8,7 +8,7 @@ RED = `tput setaf 1`
 RESET = `tput sgr0`
 
 
-SRCS			=	main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS			=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
