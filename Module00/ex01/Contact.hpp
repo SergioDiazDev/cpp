@@ -24,10 +24,10 @@ class Contact
 		std::string	_lastName;
 		std::string _nickName;
 		std::string _phone;
-		bool		_secret;
+		std::string	_secret;
 
 	public:
-		Contact(int index, bool secret, std::string firtName, std::string lastName,
+		Contact(int index, std::string secret, std::string firtName, std::string lastName,
 					std::string nickName, std::string phone);
 		Contact();
 		~Contact();

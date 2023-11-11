@@ -61,13 +61,15 @@ void	PhoneBook::get_Contact(){
 	int index;
 	std::cout << "Num:" << std::endl;
 	std::cin >> temp;
-
+	if (temp.empty())
+		exit(-1);
 	index = std::atoi(temp.c_str());
 	if (index >= 0 && index <= 7 && _contacts[index].get_Index() != -1)
 	{
 		std::cout << "FirtName: |"	<< _contacts[index].get_FirtName()	<< "|";
 		std::cout << "LastName: |"	<< _contacts[index].get_LastName()	<< "|\t";
 		std::cout << "Nick: |" 	<< _contacts[index].get_Nick()			<< "|\t";
+		std::cout << "Secret: |" 	<< _contacts[index].get_Secret()			<< "|\t";
 		std::cout << "Phone: |"	<< _contacts[index].get_Phone()			<< "|" << std::endl;
 	}
 	else
@@ -84,17 +86,29 @@ void	PhoneBook::add_Contact()
 	std::string phone;
 	std::cout << "FirtName:" << std::endl;
 	std::cin >> firtName;
-	std::cout << "LastName" << std::endl;
+	if (firtName.empty())
+		exit(-1);
+	std::cout << "LastName:" << std::endl;
 	std::cin >> lastName;
-	std::cout << "NickName" << std::endl;
+	if (lastName.empty())
+		exit(-1) ;
+	std::cout << "NickName:" << std::endl;
 	std::cin >>nickName;
-	std::cout << "phone" << std::endl;
+	if (nickName.empty())
+		exit(-1) ;
+	std::cout << "Phone:" << std::endl;
 	std::cin >> phone;
+	if (phone.empty())
+		exit(-1) ;
+	std::cout << "Secret:" << std::endl;
+	std::cin >> secret;
+	if (phone.empty())
+		exit(-1) ;
 	// std::cout << "Is secret" << std::endl;
 	// std::cin >> secret;
 	if (_lastId == 7)
 		_lastId = 0;
-	_contacts[_lastId] = (Contact(_lastId, 0, firtName, lastName, nickName, phone));
+	_contacts[_lastId] = (Contact(_lastId, secret, firtName, lastName, nickName, phone));
 	_lastId++;
 }
 

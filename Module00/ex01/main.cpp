@@ -34,6 +34,8 @@ int main()
 	{
 		ft_menu();
 		std::cin >> op;
+		if (op.empty())
+			exit(-1);
 		if (op == "ADD" || op == "1")			op = '1';
 		else if	(op == "SEARCH" || op == "2")	op = '2';
 		else if	(op == "EXIT" || op == "3")		op = '3';

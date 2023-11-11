@@ -1,7 +1,7 @@
 #include "Contact.hpp"
 
 
-Contact::Contact(int index, bool secret, std::string firtName, std::string lastName,
+Contact::Contact(int index, std::string secret, std::string firtName, std::string lastName,
 					std::string nickName, std::string phone)
 {
 	this->_index = index;
@@ -37,4 +37,8 @@ std::string Contact::get_Phone()
 int Contact::get_Index()
 {
 	return(this->_index);
+}
+std::string Contact::get_Secret()
+{
+	return(this->_secret);
 }
