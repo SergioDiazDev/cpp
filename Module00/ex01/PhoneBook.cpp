@@ -60,7 +60,7 @@ void	PhoneBook::get_Contact(){
 	std::string temp;
 	int index;
 	std::cout << "Num:" << std::endl;
-	std::cin >> temp;
+	std::getline(std::cin, temp);
 	if (temp.empty())
 		exit(-1);
 	index = std::atoi(temp.c_str());
@@ -85,23 +85,23 @@ void	PhoneBook::add_Contact()
 	std::string nickName;
 	std::string phone;
 	std::cout << "FirtName:" << std::endl;
-	std::cin >> firtName;
+	std::getline(std::cin, firtName);
 	if (firtName.empty())
 		exit(-1);
 	std::cout << "LastName:" << std::endl;
-	std::cin >> lastName;
+	std::getline(std::cin, lastName);
 	if (lastName.empty())
 		exit(-1) ;
 	std::cout << "NickName:" << std::endl;
-	std::cin >>nickName;
+	std::getline(std::cin, nickName);
 	if (nickName.empty())
 		exit(-1) ;
 	std::cout << "Phone:" << std::endl;
-	std::cin >> phone;
+	std::getline(std::cin, phone);
 	if (phone.empty())
 		exit(-1) ;
 	std::cout << "Secret:" << std::endl;
-	std::cin >> secret;
+	std::getline(std::cin, secret);
 	if (phone.empty())
 		exit(-1) ;
 	// std::cout << "Is secret" << std::endl;

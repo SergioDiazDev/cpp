@@ -33,7 +33,7 @@ int main()
 	while (menu)
 	{
 		ft_menu();
-		std::cin >> op;
+		std::getline(std::cin, op);
 		if (op.empty())
 			exit(-1);
 		if (op == "ADD" || op == "1")			op = '1';
