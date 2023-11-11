@@ -74,10 +74,10 @@ void		Bureaucrat::lowestGrade(int i)
 	this->_grade -= i;
 }
 
-void		Bureaucraf::singForm(Form &f)
+void		Bureaucrat::singForm(Form &f)
 {
-	f.beSigned(this);
-	std::cout << BLUE << "Bureaucraf " << this.getName() << " signed " << f.getName() << RESET << std::endl;
+	f.beSigned(*this);
+	std::cout << BLUE << "Bureaucraf " << this->getName() << " signed " << f.getName() << RESET << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)

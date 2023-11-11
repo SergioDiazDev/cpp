@@ -7,13 +7,9 @@
 #define MAGENTA "\033[35m"
 #define BLUE "\033[34m"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _name("Default"), _hit(10), _energy(10), _attack(0)
 {
 	std::cout << GREEN << "Created ClapTrap Default" << RESET << std::endl;
-	this->_name = "Default";
-	this->_hit = 10;
-	this->_energy = 10;
-	this->_attack = 0;
 }
 
 ClapTrap::ClapTrap(std::string name, int hit, int energy, int attack)
