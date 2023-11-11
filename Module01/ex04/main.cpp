@@ -34,6 +34,7 @@ int main(int argc, char **argv)
 			}
 			result += line;
 			outfile << result;
+			outfile << "\n";
 			result.erase();
 		}
 		infile.close();

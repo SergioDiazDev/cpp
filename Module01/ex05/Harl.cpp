@@ -34,14 +34,13 @@ void	Harl::error( void )
 
 void	Harl::complain( std::string level )
 {
-	std::map<std::string, void (Harl::*)()> mapHarl = {
-		{"DEBUG", &Harl::debug},
-		{"INFO", &Harl::info},
-		{"WARNING", &Harl::warning},
-		{"ERROR", &Harl::error}
-	};
+	std::map<std::string, void (Harl::*)()> mapHarl;
+	mapHarl["DEBUG"] = &Harl::debug;
+	mapHarl["INFO"] = &Harl::info;
+	mapHarl["WARNING"] = &Harl::warning;
+	mapHarl["ERROR"] = &Harl::error;
 
-	auto it = mapHarl.find(level);
+	std::map<std::string, void (Harl::*)()>::iterator it = mapHarl.find(level);
 	if (it != mapHarl.end())
 		(this->*(it->second))();
 	else
