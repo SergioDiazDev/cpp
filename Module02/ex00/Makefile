@@ -1,5 +1,5 @@
 NAME			=	main
-CFLAGS			=	-Wall -Werror -Wextra
+CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 RM				=	rm -fr
 
 # COLORS
@@ -17,7 +17,7 @@ $(TRUE).SILENT:
 .PHONY: all re clean fclean
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	c++ $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
