@@ -13,7 +13,7 @@ Fixed::Fixed() : _integer(0)
 }
 Fixed::Fixed(int i)
 {
-	this->_integer = i * (1 << this->_bit_frac);
+	this->_integer = i << this->_bit_frac;
 	std::cout << GREEN << "Create Fixed, integer" << RESET << std::endl;
 }
 Fixed::Fixed(float f)
@@ -44,34 +44,31 @@ Fixed	&Fixed::operator=(const Fixed &copy)
 Fixed	Fixed::operator+(const Fixed &n)
 {
 	std::cout << MAGENTA << "Operator (+)" << RESET << std::endl;
-	Fixed result = *this;
-    result._integer += n._integer;
-    return result;
+    this->_integer += n._integer;
+    return *this;
 }
 
 Fixed	Fixed::operator-(const Fixed &n)
 {
 	std::cout << MAGENTA << "Operator (-)" << RESET << std::endl;
-	Fixed result = *this;
-    result._integer -= n._integer;
-    return result;
+    this->_integer -= n._integer;
+    return *this;
 }
 
 Fixed	Fixed::operator*(const Fixed &n)
 {
 	std::cout << MAGENTA << "Operator (*)" << RESET << std::endl;
-	Fixed result = *this;
-    result._integer *= n._integer;
-	result._integer = result.toFloat();
-    return result;
+    this->_integer *= n._integer;
+	this->_integer >>= this->_bit_frac;
+    return *this;
 }
 
 Fixed	Fixed::operator/(const Fixed &n)
 {
 	std::cout << MAGENTA << "Operator (/)" << RESET << std::endl;
-	Fixed result = *this;
-    result._integer = result._integer / n.toFloat();
-    return result;
+    this->_integer /= n._integer;
+	this->_integer <<= this->_bit_frac;
+    return *this;
 }
 
 bool	Fixed::operator==(const Fixed &n)
@@ -136,28 +133,28 @@ Fixed	&Fixed::operator--(void)
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
-	if (a.toFloat() < b.toFloat())
+	if (a._integer < b._integer)
 		return a;
 	return b;
 }
 
 const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
-	if (a.toFloat() < b.toFloat())
+	if (a._integer < b._integer)
 		return a;
 	return b;
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
-	if (a.toFloat() > b.toFloat())
+	if (a._integer > b._integer)
 		return a;
 	return b;
 }
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-	if (a.toFloat() > b.toFloat())
+	if (a._integer > b._integer)
 		return a;
 	return b;
 }
@@ -179,7 +176,7 @@ float Fixed::toFloat( void ) const
 
 int Fixed::toInt( void ) const
 {
-	return (this->_integer / (1 << this->_bit_frac));
+	return (this->_integer >> this->_bit_frac);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& number)
