@@ -23,6 +23,7 @@ Cat::~Cat()
 Cat::Cat(Cat const &copy)
 {
 	std::cout << YELLOW << "Copy Cat: " << this->_brain << RESET << std::endl;
+	this->_type = copy._type;
 	this->_brain = copy._brain;
 }
 
@@ -31,6 +32,7 @@ Cat	&Cat::operator=(const Cat &copy)
 	std::cout << YELLOW << "Operator(=): " << this->_brain << RESET << std::endl;
 	if (this == &copy)
 		return *this;
+	this->_type = copy._type;
 	this->_brain = copy._brain;
 	return *this;
 }

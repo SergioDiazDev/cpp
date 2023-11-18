@@ -20,11 +20,16 @@ Cat::~Cat()
 
 Cat::Cat(Cat const &copy)
 {
-	
+	this->_type = copy._type;
+	std::cout << YELLOW << "Copy Cat" << RESET << std::endl;
 }
 
 Cat	&Cat::operator=(const Cat &copy)
 {
+	if (this == &copy)
+		return *this;
+	this->_type = copy._type;
+	std::cout << MAGENTA << "Copy Cat (=)" << RESET << std::endl;
 	return *this;
 }
 

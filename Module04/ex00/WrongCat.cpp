@@ -20,11 +20,16 @@ WrongCat::~WrongCat()
 
 WrongCat::WrongCat(WrongCat const &copy)
 {
-	
+	this->_type = copy._type;
+	std::cout << YELLOW << "Copy WrongCat" << RESET << std::endl;
 }
 
 WrongCat	&WrongCat::operator=(const WrongCat &copy)
 {
+	if (this == &copy)
+		return *this;
+	this->_type = copy._type;
+	std::cout << MAGENTA << "Copy WrongCat (=)" << RESET << std::endl;
 	return *this;
 }
 
