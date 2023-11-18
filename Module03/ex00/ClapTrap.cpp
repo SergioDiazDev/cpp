@@ -28,14 +28,22 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(ClapTrap const &copy)
 {
-/* Class::Class(const Class &copy) : someValue(copy.someValue) {} */
+	this->_name = copy._name;
+	this->_hit = copy._hit;
+	this->_energy = copy._energy;
+	this->_attack = copy._attack;
+	std::cout << YELLOW << "Copy Claptrap" << RESET << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 {
-	// if (this != &copy) {
-		// someValue = copy.someValue;
-	// }
+	if (this == &copy)
+		return *this;
+	this->_name = copy._name;
+	this->_hit = copy._hit;
+	this->_energy = copy._energy;
+	this->_attack = copy._attack;
+	std::cout << MAGENTA << "Copy ClapTrap (=)" << RESET << std::endl;
 	return *this;
 }
 
