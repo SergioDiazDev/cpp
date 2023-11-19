@@ -1,5 +1,6 @@
 NAME			=	main
-CFLAGS			=	-Wall -Werror -Wextra
+CFLAGS			=	-Wall -Werror -Wextra -std=c++98
+CC				=	c++
 RM				=	rm -fr
 
 # COLORS
@@ -22,7 +23,7 @@ $(TRUE).SILENT:
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@c++ -o $@ -std=c++98 $(OBJS)
+	@c++ -o $@ $(CFLAGS) $(OBJS)
 	@echo "$(GREEN)CREATE $(NAME) $(RESET)"
 
 

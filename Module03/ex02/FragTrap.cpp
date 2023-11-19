@@ -9,7 +9,7 @@
 
 FragTrap::FragTrap()
 {
-	std::cout << MAGENTA << "Created FragTrap Default" << RESET << std::endl;
+	std::cout << GREEN << "Created FragTrap Default" << RESET << std::endl;
 }
 
 FragTrap::~FragTrap()
