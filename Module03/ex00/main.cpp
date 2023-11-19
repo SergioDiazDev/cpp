@@ -3,9 +3,21 @@
 
 int main( void )
 {
-	ClapTrap a("Tu");
+	ClapTrap a("Pedro");
 	a.attack("Juan");
-	a.takeDamage(9);
+	a.takeDamage(1);
 	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.beRepaired(1);
+	a.attack("Juan");
+	a.takeDamage(1);
 	return 0;
 }
