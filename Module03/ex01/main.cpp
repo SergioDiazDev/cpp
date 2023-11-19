@@ -5,8 +5,8 @@
 int main( void )
 {
 	ScavTrap a("Pepe");
-	ClapTrap b;
-	a.attack("Juan");
+	ClapTrap b("Juan");
+	a.attack(b.getName());
 	a.takeDamage(9);
 	a.beRepaired(1);
 	a.guardGate();
