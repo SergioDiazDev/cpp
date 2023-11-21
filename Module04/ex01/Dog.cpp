@@ -20,7 +20,7 @@ Dog::~Dog()
 	delete this->_brain;
 }
 
-Dog::Dog(Dog const &copy)
+Dog::Dog(Dog const &copy) : Animal(copy)
 {
 	std::cout << YELLOW << "Copy Dog: " << this->_brain << RESET << std::endl;
 	this->_type = copy._type;

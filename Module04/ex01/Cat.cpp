@@ -20,7 +20,7 @@ Cat::~Cat()
 	delete this->_brain;
 }
 
-Cat::Cat(Cat const &copy)
+Cat::Cat(Cat const &copy) : Animal(copy)
 {
 	std::cout << YELLOW << "Copy Cat: " << this->_brain << RESET << std::endl;
 	this->_type = copy._type;
