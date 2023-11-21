@@ -18,7 +18,7 @@ Cat::~Cat()
 	std::cout << RED << "Destroy Animal: " << this->getType() << RESET << std::endl;
 }
 
-Cat::Cat(Cat const &copy)
+Cat::Cat(Cat const &copy) : Animal(copy)
 {
 	this->_type = copy._type;
 	std::cout << YELLOW << "Copy Cat" << RESET << std::endl;

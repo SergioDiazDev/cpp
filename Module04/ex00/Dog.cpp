@@ -18,7 +18,7 @@ Dog::~Dog()
 	std::cout << RED << "Destroy Animal: " << this->getType() << RESET << std::endl;
 }
 
-Dog::Dog(Dog const &copy)
+Dog::Dog(Dog const &copy) : Animal(copy)
 {
 	this->_type = copy._type;
 	std::cout << YELLOW << "Copy Dog" << RESET << std::endl;
