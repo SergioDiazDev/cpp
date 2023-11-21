@@ -22,18 +22,18 @@ Dog::~Dog()
 
 Dog::Dog(Dog const &copy) : Animal(copy)
 {
-	std::cout << YELLOW << "Copy Dog: " << this->_brain << RESET << std::endl;
 	this->_type = copy._type;
-	this->_brain = copy._brain;
+	this->_brain = new Brain(*copy._brain);
+	std::cout << YELLOW << "Copy Dog: " << this->_brain << RESET << std::endl;
 }
 
 Dog	&Dog::operator=(const Dog &copy)
 {
-	std::cout << YELLOW << "Operator(=): " << this->_brain << RESET << std::endl;
 	if (this == &copy)
 		return *this;
 	this->_type = copy._type;
-	this->_brain = copy._brain;
+	this->_brain = new Brain(*copy._brain);
+	std::cout << YELLOW << "Operator(=): " << this->_brain << RESET << std::endl;
 	return *this;
 }
 
