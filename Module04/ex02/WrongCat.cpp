@@ -18,7 +18,7 @@ WrongCat::~WrongCat()
 	std::cout << RED << "Destroy Animal: " << this->getType() << RESET << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const &copy)
+WrongCat::WrongCat(WrongCat const &copy) : WrongAnimal(copy)
 {
 	this->_type = copy._type;
 	std::cout << YELLOW << "Copy WrongCat" << RESET << std::endl;

@@ -20,7 +20,7 @@ Brain::~Brain()
 Brain::Brain(Brain const &copy)
 {
 	std::cout << YELLOW << "Copy Brain: " << this->_idea << RESET << std::endl;
-	for (int i = 0; i <= 100; i++)
+	for (int i = 0; i < 100; i++)
 		this->_idea[i] = copy._idea[i];
 }
 
@@ -29,7 +29,7 @@ Brain	&Brain::operator=(const Brain &copy)
 	std::cout << YELLOW << "Operator(=): " << this->_idea << RESET << std::endl;
 	if (this == &copy)
 		return *this;
-	for (int i = 0; i <= 100; i++)
+	for (int i = 0; i < 100; i++)
 		this->_idea[i] = copy._idea[i];
 	return *this;
 }

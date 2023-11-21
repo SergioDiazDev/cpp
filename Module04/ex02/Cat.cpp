@@ -20,18 +20,18 @@ Cat::~Cat()
 	delete this->_brain;
 }
 
-Cat::Cat(Cat const &copy)
+Cat::Cat(Cat const &copy) : AAnimal(copy)
 {
+	this->_brain = new Brain(*copy._brain);
 	std::cout << YELLOW << "Copy Cat: " << this->_brain << RESET << std::endl;
-	this->_brain = copy._brain;
 }
 
 Cat	&Cat::operator=(const Cat &copy)
 {
-	std::cout << YELLOW << "Operator(=): " << this->_brain << RESET << std::endl;
 	if (this == &copy)
 		return *this;
-	this->_brain = copy._brain;
+	this->_brain = new Brain(*copy._brain);
+	std::cout << YELLOW << "Operator(=): " << this->_brain << RESET << std::endl;
 	return *this;
 }
 
