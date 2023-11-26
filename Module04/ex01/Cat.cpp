@@ -22,18 +22,18 @@ Cat::~Cat()
 
 Cat::Cat(Cat const &copy) : Animal(copy)
 {
-	std::cout << YELLOW << "Copy Cat: " << this->_brain << RESET << std::endl;
+	this->_brain = new Brain(*copy._brain);
 	this->_type = copy._type;
-	this->_brain = copy._brain;
+	std::cout << YELLOW << "Copy Cat: " << this->_brain << RESET << std::endl;
 }
 
 Cat	&Cat::operator=(const Cat &copy)
 {
-	std::cout << YELLOW << "Operator(=): " << this->_brain << RESET << std::endl;
 	if (this == &copy)
 		return *this;
+	std::cout << YELLOW << "Operator(=): " << this->_brain << RESET << std::endl;
 	this->_type = copy._type;
-	this->_brain = copy._brain;
+	this->_brain = new Brain(*copy._brain);
 	return *this;
 }
 
