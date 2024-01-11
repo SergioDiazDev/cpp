@@ -1,6 +1,7 @@
 NAME			=	main
 CFLAGS			=	-Wall -Werror -Wextra
 RM				=	rm -fr
+CC				=	c++
 
 # COLORS
 GREEN = `tput setaf 2`
@@ -22,7 +23,7 @@ $(TRUE).SILENT:
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@c++ -o $@ -std=c++98 $(OBJS)
+	@$(CC) -o $@ -std=c++98 $(OBJS)
 	@echo "$(GREEN)CREATE $(NAME) $(RESET)"
 
 
