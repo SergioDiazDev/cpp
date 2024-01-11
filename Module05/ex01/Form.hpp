@@ -25,8 +25,8 @@ class Form
 
 		const std::string	getName(void) const;
 		bool				getSig(void) const;
-		const int			getGradeSig(void) const;
-		const int			getGradeExe(void) const;
+		int			getGradeSig(void) const;
+		int			getGradeExe(void) const;
 
 		void	beSigned(Bureaucrat &);
 

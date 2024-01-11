@@ -62,11 +62,11 @@ bool				Form::getSig(void) const
 {
 	return this->_sig;
 }
-const int			Form::getGradeSig(void) const
+int			Form::getGradeSig(void) const
 {
 	return this->_gradeSig;
 }
-const int			Form::getGradeExe(void) const
+int			Form::getGradeExe(void) const
 {
 	return this->_gradeExe;
 }
