@@ -19,12 +19,7 @@ class AForm::GradeTooLowException : public std::exception {
 	} 
 };
 
-AForm::AForm() : _name("Default"), _sig(0), _gradeSig(150), _gradeExe(150)
-{
-	std::cout << GREEN << "Created AForm Default" << RESET << std::endl;
-}
-
-AForm::AForm(const std::string name, bool sig, const int gradeSig, const int gradeExe) : _name(name), _gradeSig(gradeSig), _gradeExe(gradeExe)
+AForm::AForm(const std::string name, bool sig, const int gradeSig, const int gradeExe, const std::string target) : _name(name), _gradeSig(gradeSig), _gradeExe(gradeExe), _target(target)
 {
 	this->_sig = sig;
 	if (this->_gradeSig <= 0 || this->_gradeExe <= 0)

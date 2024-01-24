@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
 
 int	main( void )
 {
 	Bureaucrat b("Hermes Conrad", 34);
-	Form f("Formulario 0", 0, 42, 42);
+	AForm *f = new ShrubberyCreationForm("home");
 
 	//std::cout << b.getName() << ", " << b.getGrade() << std::endl;
 

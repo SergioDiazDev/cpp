@@ -13,10 +13,11 @@ class AForm
 		bool				_sig;
 		const int			_gradeSig;
 		const int			_gradeExe;
+		const std::string			_target;
 	public:
 		AForm();
-		AForm(const std::string, bool, const int, const int);
-		~AForm();
+		AForm(const std::string, bool, const int, const int, const std::string);
+		virtual ~AForm() = 0;
 		AForm(AForm const &copy);
 		AForm	&operator=(AForm const &copy);
 
@@ -29,6 +30,7 @@ class AForm
 		const int			getGradeExe(void) const;
 
 		void	beSigned(Bureaucrat &);
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 };
 
