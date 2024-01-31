@@ -29,6 +29,8 @@ $(NAME): $(OBJS)
 
 clean:
 	@$(RM) $(OBJS)
+	@echo "$(RED)REMOVE *_shrubbery $(NAME)$(RESET)\n"
+	@$(RM) *_shrubbery
 	@echo "$(RED)REMOVE OBJECTS $(NAME)$(RESET)\n"
 
 fclean:	clean

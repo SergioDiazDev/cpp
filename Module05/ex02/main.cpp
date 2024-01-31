@@ -15,6 +15,7 @@ int	main( void )
 		std::cout << *f;
 		b.singForm(*f);
 		std::cout << *f;
+		f->execute(b);
 	}
 	catch (std::exception & e){
 		std::cout << e.what() << std::endl;

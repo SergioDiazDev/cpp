@@ -37,4 +37,23 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	std::cout << "Executado" << std::endl;
+	std::string ascii =
+	""
+    "   /\\           /\\           /\\\n"
+    "  //\\\\         //\\\\         //\\\\\n"
+    " //  \\\\       //  \\\\       //  \\\\\n"
+    "//    \\\\     //    \\\\     //    \\\\\n"
+    "   ||           ||           ||\n";
+
+	std::string fileName = this->getTarget() + "_shrubbery";
+
+	std::ofstream file(fileName.c_str());
+
+	if (file.is_open()) {
+		file << ascii;
+		file.close();
+		std::cout << "File shrubbery create: " << fileName << std::endl;
+    } else {
+        std::cout << "Error in a file" << std::endl;
+    }
 }
