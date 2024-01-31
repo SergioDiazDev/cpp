@@ -3,7 +3,6 @@
 
 # include <iostream>
 # include <fstream>
-
 # include "AForm.hpp"
 
 class AForm;

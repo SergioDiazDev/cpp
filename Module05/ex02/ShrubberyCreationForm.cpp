@@ -36,7 +36,6 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	std::cout << "Executado" << std::endl;
 	std::string ascii =
 	""
     "   /\\           /\\           /\\\n"
