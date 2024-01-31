@@ -73,7 +73,7 @@ int			Form::getGradeExe(void) const
 
 void	Form::beSigned(Bureaucrat &b)
 {
-	if (this->getGradeSig() < b.getGrade())
+	if (this->getGradeSig() > b.getGrade())
 		throw GradeTooLowException();
 	this->_sig = 1;
 }

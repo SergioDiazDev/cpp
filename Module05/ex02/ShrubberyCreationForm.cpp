@@ -1,10 +1,10 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 0 ,145, 137, "Default")
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery Creation Form", 0 ,145, 137, target)
 {
 }
 
@@ -12,20 +12,19 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) : AForm(copy)
 {
-/* Class::Class(const Class &copy) : someValue(copy.someValue) {} */
+
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy)
 {
-	// if (this != &copy) {
-		// someValue = copy.someValue;
-	// }
-	// return *this;
+	if (this != &copy)
+		*this = copy;
+	return *this;
 }
 
-void	execute(Bureaucrat const & executor) const
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	std::cout << "Executado" << std::endl;
 }

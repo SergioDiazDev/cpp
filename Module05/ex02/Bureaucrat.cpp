@@ -26,6 +26,10 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
+	if (grade <= 0)
+		throw GradeTooLowException();
+	if (grade > 150)
+		throw GradeTooHighException();
 	this->_name = name;
 	this->_grade = grade;
 	std::cout << GREEN << "Created Bureaucrat " << this->_name << ", grade: " << this->_grade << RESET << std::endl;
@@ -74,7 +78,7 @@ void		Bureaucrat::lowestGrade(int i)
 	this->_grade -= i;
 }
 
-void		Bureaucrat::singForm(Form &f)
+void		Bureaucrat::singForm(AForm &f)
 {
 	f.beSigned(*this);
 	std::cout << BLUE << "Bureaucraf " << this->getName() << " signed " << f.getName() << RESET << std::endl;

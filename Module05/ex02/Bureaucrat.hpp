@@ -4,7 +4,7 @@
 # include <iostream>
 # include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -22,7 +22,7 @@ class Bureaucrat
 		int			getGrade(void) const;
 		void		highestGrade(int);
 		void		lowestGrade(int);
-		void		singForm(Form &f);
+		void		singForm(AForm &f);
 
 		class GradeTooHighException;
 		class GradeTooLowException;

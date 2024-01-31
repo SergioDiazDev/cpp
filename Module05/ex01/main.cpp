@@ -4,7 +4,7 @@
 
 int	main( void )
 {
-	Bureaucrat b("Hermes Conrad", 34);
+	Bureaucrat b("Hermes Conrad", 42);
 	Form f("Formulario 0", 0, 42, 42);
 
 	//std::cout << b.getName() << ", " << b.getGrade() << std::endl;

@@ -12,9 +12,9 @@ int	main( void )
 
 	try{
 		std::cout << b;
-		std::cout << f;
-		b.singForm(f);
-		std::cout << f;
+		std::cout << *f;
+		b.singForm(*f);
+		std::cout << *f;
 	}
 	catch (std::exception & e){
 		std::cout << e.what() << std::endl;
