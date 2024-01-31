@@ -22,7 +22,7 @@ class Bureaucrat
 		int			getGrade(void) const;
 		void		highestGrade(int);
 		void		lowestGrade(int);
-		void		singForm(Form &f);
+		void		signForm(Form &f);
 
 		class GradeTooHighException;
 		class GradeTooLowException;

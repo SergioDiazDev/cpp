@@ -12,7 +12,7 @@ int	main( void )
 	try{
 		std::cout << b;
 		std::cout << f;
-		b.singForm(f);
+		b.signForm(f);
 		std::cout << f;
 	}
 	catch (std::exception & e){

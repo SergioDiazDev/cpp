@@ -19,18 +19,18 @@ int	main( void )
 		std::cout << b;
 
 		std::cout << *s;
-		b.singForm(*s);
+		b.signForm(*s);
 		std::cout << *s;
 		b.executeForm(*s);
 
 
 		std::cout << *r;
-		b.singForm(*r);
+		b.signForm(*r);
 		std::cout << *r;
 		b.executeForm(*r);
 
 		std::cout << *p;
-		b.singForm(*p);
+		b.signForm(*p);
 		std::cout << *p;
 		b.executeForm(*p);
 	}

@@ -78,7 +78,7 @@ void		Bureaucrat::lowestGrade(int i)
 	this->_grade -= i;
 }
 
-void		Bureaucrat::singForm(AForm &f)
+void		Bureaucrat::signForm(AForm &f)
 {
 	f.beSigned(*this);
 	std::cout << BLUE << "Bureaucrat " << this->getName() << " signed " << f.getName() << RESET << std::endl;
