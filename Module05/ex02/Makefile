@@ -10,7 +10,7 @@ RESET = `tput sgr0`
 
 
 SRCS			=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-					RobotomyRequestForm.cpp
+					RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
