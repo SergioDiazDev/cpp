@@ -7,7 +7,7 @@
 
 int	main( void )
 {
-	Bureaucrat b("Hermes Conrad", 1);
+	Bureaucrat b("Hermes Conrad", 24);
 	AForm *s = new ShrubberyCreationForm("home");
 	AForm *r = new RobotomyRequestForm("Bender");
 	AForm *p = new PresidentialPardonForm("Zoidberg");
@@ -21,18 +21,18 @@ int	main( void )
 		std::cout << *s;
 		b.singForm(*s);
 		std::cout << *s;
-		s->execute(b);
+		b.executeForm(*s);
 
 
 		std::cout << *r;
 		b.singForm(*r);
 		std::cout << *r;
-		r->execute(b);
+		b.executeForm(*r);
 
 		std::cout << *p;
 		b.singForm(*p);
 		std::cout << *p;
-		p->execute(b);
+		b.executeForm(*p);
 	}
 	catch (std::exception & e){
 		std::cout << e.what() << std::endl;

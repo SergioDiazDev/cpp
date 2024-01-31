@@ -81,7 +81,30 @@ void		Bureaucrat::lowestGrade(int i)
 void		Bureaucrat::singForm(AForm &f)
 {
 	f.beSigned(*this);
-	std::cout << BLUE << "Bureaucraf " << this->getName() << " signed " << f.getName() << RESET << std::endl;
+	std::cout << BLUE << "Bureaucrat " << this->getName() << " signed " << f.getName() << RESET << std::endl;
+}
+
+void		Bureaucrat::executeForm(AForm const & form)
+{
+	if (!form.getSig())
+		std::cout << YELLOW << this->getName() << " not Signed " << form.getName() << RESET << std::endl;
+	else
+	{
+		if (form.getGradeExe() < this->getGrade())
+			std::cout << YELLOW << this->getName() << " not permision " << form.getName() << RESET << std::endl;
+		else
+		{
+			try
+			{
+				std::cout << MAGENTA << this->getName() << " executed " << form.getName() << RESET << std::endl;
+				form.execute(*this);
+			}
+			catch(std::exception & e)
+			{
+				std::cout << RED << this->getName() << " not executed " << form.getName() << RESET << std::endl;
+			}
+		}
+	}
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
