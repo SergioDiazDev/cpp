@@ -72,7 +72,7 @@ const std::string	AForm::getTarget(void) const
 
 void	AForm::beSigned(Bureaucrat &b)
 {
-	if (this->getGradeSig() > b.getGrade())
+	if (this->getGradeSig() < b.getGrade())
 		throw GradeTooLowException();
 	this->_sig = 1;
 }
