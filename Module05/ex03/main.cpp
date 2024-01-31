@@ -8,15 +8,15 @@
 
 int	main( void )
 {
-	Bureaucrat b("Hermes Conrad", 1);
+	Bureaucrat b("Hermes Conrad", 146);
+	
 	AForm *s = new ShrubberyCreationForm("home");
 	AForm *r = new RobotomyRequestForm("Bender");
 	AForm *p = new PresidentialPardonForm("Zoidberg");
+
 	Intern someRandomIntern;
 	AForm *rrf;
-	//rrf = someRandomIntern.makeForm("robotomy request", "Flexo");
-
-	//std::cout << b.getName() << ", " << b.getGrade() << std::endl;
+	rrf = someRandomIntern.makeForm("robotomy request", "Flexo");
 
 	try{
 		std::cout << b;
@@ -32,15 +32,14 @@ int	main( void )
 		std::cout << *r;
 		b.executeForm(*r);
 
+
 		std::cout << *p;
 		b.signForm(*p);
 		std::cout << *p;
 		b.executeForm(*p);
 
-		//std::cout << *rrf;
+
 		b.signForm(*rrf);
-		std::cout << "hola" << std::endl;
-		//std::cout << *rrf;
 		b.executeForm(*rrf);
 	}
 	catch (std::exception & e){
@@ -49,6 +48,7 @@ int	main( void )
 	delete(s);
 	delete(r);
 	delete(p);
+	delete(rrf);
 	
 	return 0;
 }
