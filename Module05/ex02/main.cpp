@@ -5,7 +5,7 @@
 
 int	main( void )
 {
-	Bureaucrat b("Hermes Conrad", 34);
+	Bureaucrat b("Hermes Conrad", 145);
 	AForm *f = new ShrubberyCreationForm("home");
 
 	//std::cout << b.getName() << ", " << b.getGrade() << std::endl;
@@ -19,5 +19,7 @@ int	main( void )
 	catch (std::exception & e){
 		std::cout << e.what() << std::endl;
 	}
+	delete(f);
+	
 	return 0;
 }

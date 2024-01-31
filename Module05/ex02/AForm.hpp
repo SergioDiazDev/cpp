@@ -28,6 +28,7 @@ class AForm
 		bool				getSig(void) const;
 		const int			getGradeSig(void) const;
 		const int			getGradeExe(void) const;
+		const std::string	getTarget(void) const;
 
 		void	beSigned(Bureaucrat &);
 		virtual void	execute(Bureaucrat const & executor) const = 0;

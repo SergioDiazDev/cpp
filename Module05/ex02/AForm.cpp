@@ -65,6 +65,10 @@ const int			AForm::getGradeExe(void) const
 {
 	return this->_gradeExe;
 }
+const std::string	AForm::getTarget(void) const
+{
+	return this->_target;
+}
 
 void	AForm::beSigned(Bureaucrat &b)
 {
