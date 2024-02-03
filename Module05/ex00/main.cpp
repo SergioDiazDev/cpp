@@ -9,13 +9,13 @@ int main( void )
 
 	try{
 		std::cout << b;
-		b.lowestGrade(33);
-		//TooLowGrade
-		//b.lowestGrade(1);
-		std::cout << b;
-		b.highestGrade(149);
-		//TooHighGrade
-		b.highestGrade(1);
+		// b.lowestGrade(33);
+		// //TooLowGrade
+		// //b.lowestGrade(1);
+		 std::cout << b;
+		 b.highestGrade(33);
+		// //TooHighGrade
+		// b.highestGrade(1);
 		std::cout << b;
 	}
 	catch (std::exception & e){

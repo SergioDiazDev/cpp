@@ -24,13 +24,13 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 	std::cout << GREEN << "Created Bureaucrat Default" << RESET << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
 	if (grade <= 0)
-		throw GradeTooLowException();
-	if (grade > 150)
 		throw GradeTooHighException();
-	this->_name = name;
+	if (grade > 150)
+		throw GradeTooLowException();
+	//this->_name = name;
 	this->_grade = grade;
 	std::cout << GREEN << "Created Bureaucrat " << this->_name << ", grade: " << this->_grade << RESET << std::endl;
 }
@@ -43,7 +43,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat::Bureaucrat(Bureaucrat const &copy)
 {
 	std::cout << YELLOW << "Copy Bureaucrat: " << this->getName() << RESET << std::endl;
-	this->_name = copy._name;
+	//this->_name = copy._name;
 	this->_grade = copy._grade;
 }
 
@@ -52,7 +52,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &copy)
 	std::cout << YELLOW << "Operator(=): " << this->getName() << RESET << std::endl;
 	if (this == &copy)
 		return *this;
-	this->_name = copy._name;
+	//this->_name = copy._name;
 	this->_grade = copy._grade;
 	return *this;
 }
@@ -65,16 +65,16 @@ int			Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }
-void		Bureaucrat::highestGrade(int i)
-{
-	if (this->_grade + i > 150)
-		throw GradeTooHighException();
-	this->_grade += i;
-}
 void		Bureaucrat::lowestGrade(int i)
 {
-	if (this->_grade - i <= 0)
+	if (this->_grade + i > 150)
 		throw GradeTooLowException();
+	this->_grade += i;
+}
+void		Bureaucrat::highestGrade(int i)
+{
+	if (this->_grade - i <= 0)
+		throw GradeTooHighException();
 	this->_grade -= i;
 }
 
