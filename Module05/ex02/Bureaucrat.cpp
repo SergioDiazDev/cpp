@@ -27,9 +27,9 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
 	if (grade <= 0)
-		throw GradeTooLowException();
-	if (grade > 150)
 		throw GradeTooHighException();
+	if (grade > 150)
+		throw GradeTooLowException();
 	this->_name = name;
 	this->_grade = grade;
 	std::cout << GREEN << "Created Bureaucrat " << this->_name << ", grade: " << this->_grade << RESET << std::endl;
@@ -65,16 +65,16 @@ int			Bureaucrat::getGrade(void) const
 {
 	return (this->_grade);
 }
-void		Bureaucrat::highestGrade(int i)
-{
-	if (this->_grade + i > 150)
-		throw GradeTooHighException();
-	this->_grade += i;
-}
 void		Bureaucrat::lowestGrade(int i)
 {
-	if (this->_grade - i <= 0)
+	if (this->_grade + i > 150)
 		throw GradeTooLowException();
+	this->_grade += i;
+}
+void		Bureaucrat::highestGrade(int i)
+{
+	if (this->_grade - i <= 0)
+		throw GradeTooHighException();
 	this->_grade -= i;
 }
 
