@@ -19,6 +19,11 @@ class AForm::GradeTooLowException : public std::exception {
 	} 
 };
 
+AForm::AForm() : _name("void"), _gradeSig(0), _gradeExe(0), _target("void")
+{
+	std::cout << "Creado nulo" << std::endl;
+}
+
 AForm::AForm(const std::string name, bool sig, const int gradeSig, const int gradeExe, const std::string target) : _name(name), _gradeSig(gradeSig), _gradeExe(gradeExe), _target(target)
 {
 	this->_sig = sig;

@@ -30,28 +30,24 @@ Intern	&Intern::operator=(const Intern &copy)
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	std::map<std::string, int> map;
 
-	map["shrubbery creation"] = 0;
-	map["robotomy request"] = 1;
-	map["presidential pardon"] = 2;
+	std::string map = "[shrubbery creation][robotomy request][presidential pardon]";
 
-	std::map<std::string, int>::iterator it = map.find(name);
+	int i = map.find(name, 0);
 
-	if (it == map.end())
+	switch(i)
 	{
-		std::cout << "Not valid name." << std::endl;
-		return NULL;
-	}
-
-	switch(it->second)
-	{
-		case 0:
-			return (new ShrubberyCreationForm(target));
 		case 1:
+			return (new ShrubberyCreationForm(target));
+		case 21:
 			return (new RobotomyRequestForm(target));
-		case 2:
+		case 39:
 			return (new PresidentialPardonForm(target));
+		default :
+		{
+			std::cout << RED << "Target Error: " << name << RESET << std::endl; 
+			return NULL;
+		}
 	}
 	return NULL;
 }

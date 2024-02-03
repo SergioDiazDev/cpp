@@ -8,7 +8,7 @@
 
 int	main( void )
 {
-	Bureaucrat b("Hermes Conrad", 146);
+	Bureaucrat b("Hermes Conrad", 1);
 	
 	AForm *s = new ShrubberyCreationForm("home");
 	AForm *r = new RobotomyRequestForm("Bender");
@@ -18,32 +18,36 @@ int	main( void )
 	AForm *rrf;
 	rrf = someRandomIntern.makeForm("robotomy request", "Flexo");
 
-	try{
-		std::cout << b;
+	if (rrf)
+	{
+		try{
+			std::cout << b;
 
-		std::cout << *s;
-		b.signForm(*s);
-		std::cout << *s;
-		b.executeForm(*s);
-
-
-		std::cout << *r;
-		b.signForm(*r);
-		std::cout << *r;
-		b.executeForm(*r);
+			std::cout << *s;
+			b.signForm(*s);
+			std::cout << *s;
+			b.executeForm(*s);
 
 
-		std::cout << *p;
-		b.signForm(*p);
-		std::cout << *p;
-		b.executeForm(*p);
+			std::cout << *r;
+			b.signForm(*r);
+			std::cout << *r;
+			b.executeForm(*r);
 
 
-		b.signForm(*rrf);
-		b.executeForm(*rrf);
-	}
-	catch (std::exception & e){
-		std::cout << e.what() << std::endl;
+			std::cout << *p;
+			b.signForm(*p);
+			std::cout << *p;
+			b.executeForm(*p);
+
+
+			b.signForm(*rrf);
+			std::cout << "hola"<< std::endl;
+			b.executeForm(*rrf);
+		}
+		catch (std::exception & e){
+			std::cout << e.what() << std::endl;
+		}
 	}
 	delete(s);
 	delete(r);

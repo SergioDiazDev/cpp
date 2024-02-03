@@ -14,8 +14,8 @@ class AForm
 		const int			_gradeSig;
 		const int			_gradeExe;
 		const std::string			_target;
-	public:
 		AForm();
+	public:
 		AForm(const std::string, bool, const int, const int, const std::string);
 		virtual ~AForm() = 0;
 		AForm(AForm const &copy);
