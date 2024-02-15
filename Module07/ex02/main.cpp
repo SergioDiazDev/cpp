@@ -1,5 +1,7 @@
 #include <iostream>
-#include <Array.hpp>
+#include <ctime>
+#include <cstdlib>
+#include "Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -27,22 +29,22 @@ int main(int, char**)
             return 1;
         }
     }
-    try
-    {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    // try
+    // {
+    //     numbers[-2] = 0;
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
+    // try
+    // {
+    //     numbers[MAX_VAL] = 0;
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
 
     for (int i = 0; i < MAX_VAL; i++)
     {
