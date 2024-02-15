@@ -9,7 +9,7 @@ RED = `tput setaf 1`
 RESET = `tput sgr0`
 
 
-SRCS			=	main.cpp
+SRCS			=	main.cpp Span.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
