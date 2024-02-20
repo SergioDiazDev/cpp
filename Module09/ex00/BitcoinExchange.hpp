@@ -13,7 +13,7 @@
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, float> _map;
+		std::map<time_t, float> _map;
 		BitcoinExchange(BitcoinExchange const &copy);
 		BitcoinExchange	&operator=(BitcoinExchange const &copy);
 		std::time_t validateDate(std::string date);
@@ -22,6 +22,8 @@ class BitcoinExchange
 		BitcoinExchange();
 		~BitcoinExchange();
 		unsigned int size();
+		float findValueForDate(std::string date);
+		void calculateFile(char *filename);
 
 		class ErrorOpenFile;
 

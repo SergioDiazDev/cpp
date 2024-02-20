@@ -8,11 +8,12 @@ int main(int argc, char **argv)
 		std::cout << "Error with arguments." << std::endl;
 		return 0;
 	}
-	std::string filename(argv[1]);
-	std::cout << filename << std::endl;
 
 	BitcoinExchange btc;
 
-	std::cout << "Tamaño: " << btc.size() << std::endl;
+	//std::cout << "Tamaño: " << btc.findValueForDate("2012-01-11") << std::endl;
+	
+	btc.calculateFile(argv[1]);
+
 	return 0;
 }

@@ -15,6 +15,8 @@ class BitcoinExchange::ErrorOpenFile : public std::exception {
 
 BitcoinExchange::BitcoinExchange()
 {
+	std::cout << GREEN << "Create BitcoinExchange Default" << RESET << std::endl;
+	//load DB
 	std::ifstream file(DB);
 	std::string line;
 
@@ -28,16 +30,10 @@ BitcoinExchange::BitcoinExchange()
 			continue ;
 		}
 		std::string date = line.substr(0, line.find(","));
-		std::string value = line.substr(line.find(",") + 2);
-		_map.insert(std::make_pair(date, atof(value.c_str())));
-		
-		//std::cout << atof(value.c_str()) << std::endl;
-		//std:: cout << "Date: '" << date << "' ValidateDate: '" <<validateDate(date) << "'" << std::endl;
-		//std::cout << "Date: '" << date << "' .Value: '" << value << "'" << std::endl;
-
-		//std::cout << line << std::endl;
+		std::string value = line.substr(line.find(",") + 1);
+		_map.insert(std::make_pair(validateDate(date), atof(value.c_str())));
 	}
-	std::cout << GREEN << "Create BitcoinExchange Default" << RESET << std::endl;
+
 }
 
 std::time_t BitcoinExchange::validateDate(std::string date)
@@ -75,5 +71,63 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &copy)
 	}
 	return *this;
 }
+
+float BitcoinExchange::findValueForDate(std::string date)
+{
+	time_t date_num = validateDate(date);
+
+	if (date_num == -1)
+		std::cout << RED << "Not Valid Date:" << RESET << std::endl;
+	std::map<time_t, float>::iterator it = _map.find(date_num);
+	
+	if (it != _map.end())
+		return it->second;
+	else
+	{
+		it = _map.lower_bound(date_num);
+		if (it == _map.begin())
+		{
+			std::cout << RED << "No previous date found." << RESET << std::endl;
+			return -1;
+		}
+		--it;
+		return it->second;
+	}
+}
+
+void BitcoinExchange::calculateFile(char *filename)
+{
+	std::ifstream file(filename);
+	std::string line;
+
+	if (!file.is_open())
+		throw ErrorOpenFile();
+	getline(file, line);
+	while (getline(file, line))
+	{
+		if (line.find("|") == std::string::npos)
+		{
+			std::cout << RED << "Error format: " << line << RESET << std::endl;
+			continue ;
+		}
+		std::string date = line.substr(0, line.find("|") - 1);
+		std::string value_str = line.substr(line.find("|") + 1);
+		float value = atof(value_str.c_str());
+		if (0 > value)
+		{
+			std::cout << RED << "Error: not a positive number." << RESET << std::endl;
+			continue ;
+		}
+		else if (value > 1000)
+		{
+			std::cout << RED << "Error: too large a number." << RESET << std::endl;
+			continue ;
+		}
+
+		std::cout << date << " => " << value << " = " << findValueForDate(date) * value << std::endl;
+	}
+
+}
+
 
 unsigned int BitcoinExchange::size(){return _map.size();}
