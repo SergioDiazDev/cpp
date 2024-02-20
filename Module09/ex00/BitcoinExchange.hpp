@@ -4,20 +4,24 @@
 # include <iostream>
 # include <fstream>
 # include <exception>
+# include <ctime>
+# include <cstdlib> 
 # include <map>
+
+# define DB "data.csv"
 
 class BitcoinExchange
 {
 	private:
-		BitcoinExchange();
 		std::map<std::string, float> _map;
 		BitcoinExchange(BitcoinExchange const &copy);
 		BitcoinExchange	&operator=(BitcoinExchange const &copy);
+		std::time_t validateDate(std::string date);
 
 	public:
+		BitcoinExchange();
 		~BitcoinExchange();
-		BitcoinExchange(std::string filename);
-		unsigned int getSize();
+		unsigned int size();
 
 		class ErrorOpenFile;
 

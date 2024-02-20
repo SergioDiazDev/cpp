@@ -11,6 +11,8 @@ int main(int argc, char **argv)
 	std::string filename(argv[1]);
 	std::cout << filename << std::endl;
 
-	BitcoinExchange btc(filename);
+	BitcoinExchange btc;
+
+	std::cout << "Tamaño: " << btc.size() << std::endl;
 	return 0;
 }
